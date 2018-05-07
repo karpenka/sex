@@ -1,0 +1,24 @@
+import matplotlib.pyplot as plt
+import time
+class money:
+    with open('data.dat','r') as f:
+        current_money = float(f.readline().split()[0])
+    def change(money_in):
+        money.current_money += money_in
+        with open('data.dat','a') as data:
+            data.write('\n')
+            data.write(str(money.current_money))
+            data.write(' ')
+            data.write(str(time.time()))
+    def plot():
+        xdata = []
+        ydata = []
+        with open('data.dat',"r") as ff:
+            a = ff.readline().split()
+            while a:
+                xdata += [float(a[1])]
+                ydata += [float(a[0])]
+                a = ff.readline().split()
+            plt.plot(xdata,ydata)
+            plt.show()
+money.plot()
