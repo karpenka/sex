@@ -1,0 +1,14 @@
+class Song:
+    def __init__(self, artist, song):
+        self.artist = artist
+        self.song = song
+        self.tags = list()
+        
+    def add_tags(self, *args):
+        for i in args:
+            if i in self.tags:
+                continue
+            else:
+                self.tags.extend([i])
+song1 = Song("shakey graves", "roll the bones")
+print(song1.tags)
